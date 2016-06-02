@@ -6,11 +6,12 @@
   "scripts": {
     "start": "nodemon --watch server -e js,html server/start.js",
     "seed": "node ./bin/seed",
-    "db-init": "./db-init.sh",
-    "postinstall": "npm run db-init",
     "test": "./node_modules/.bin/mocha server/**/*.test.js --reporter spec"
   },
   "dependencies": {
+    "angular": "^1.5.6",
+    "angular-messages": "^1.5.6",
+    "angular-ui-router": "^0.3.0",
     "babel": "^5.0.12",
     "bluebird": "^2.9.34",
     "body-parser": "^1.12.0",
