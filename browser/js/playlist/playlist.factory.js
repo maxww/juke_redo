@@ -36,7 +36,7 @@ juke.factory('PlaylistFactory', function ($http, SongFactory) {
             });
     };
 
-    PlaylistFactory.addSong = function (id, songData, list) {
+    PlaylistFactory.addSong = function (id, songData, updatedList) {
         return $http.post('/api/playlists/' + id + '/songs', {
                 song: songData
             })
@@ -45,8 +45,8 @@ juke.factory('PlaylistFactory', function ($http, SongFactory) {
             })
             .then(SongFactory.convert)
             .then(function () {
-                return $http.update('/api/playlist/' + id, {
-                    songlist: list
+                return $http.put('/api/playlists/' + id, {
+                    songlist: updatedList
                 })
             })
             .then(function (response) {

@@ -42,7 +42,6 @@ juke.controller('PlaylistCtrl', function ($scope, thePlaylist, PlaylistFactory, 
 
     if (thePlaylist.songlist) {
         var newList = [];
-
         for (var i = 0; i < thePlaylist.songlist.length; i++) {
             for (var j = 0; j < songs.length; j++) {
                 if (songs[j].id === thePlaylist.songlist[i]) {
@@ -50,34 +49,31 @@ juke.controller('PlaylistCtrl', function ($scope, thePlaylist, PlaylistFactory, 
                 }
             }
         }
-
         tempList.songs = newList;
-
     }
-    $scope.playlist = tempList
 
+    $scope.playlist = tempList;
+    var canUpdateSongList = $scope.playlist.songlist;
 
-    $scope.sortingLog = [];
-
-    $scope.sortableOptions = {
-        stop: function (e, ui) {
-            // this callback has the changed model
-            var logEntry = $scope.playlist.songs.map(function (i) {
-                return i.id;
-            });
-            $scope.sortingLog.push(logEntry);
-            var lastEditedIndex = $scope.sortingLog.length - 1;
-            // console.log($scope.sortingLog[lastEditedIndex])
-            PlaylistFactory.updateList($scope.playlist.id, $scope.sortingLog[lastEditedIndex]);
-        }
-    }
+    var sortingLog = []
 
     $scope.addSong = function (song) {
-        return PlaylistFactory.addSong($scope.playlist.id, song)
+        canUpdateSongList.push(song.id);
+        return PlaylistFactory.addSong($scope.playlist.id, song, canUpdateSongList)
             .then(function (addedSong) {
                 $scope.playlist.songs.push(addedSong);
                 return addedSong;
             });
     };
 
+    $scope.sortableOptions = {
+        stop: function (e, ui) {
+            var logEntry = $scope.playlist.songs.map(function (i) {
+                return i.id;
+            });
+            sortingLog.push(logEntry);
+            var lastEditedIndex = sortingLog.length - 1;
+            PlaylistFactory.updateList($scope.playlist.id, sortingLog[lastEditedIndex]);
+        }
+    }
 });
