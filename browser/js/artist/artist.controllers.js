@@ -14,6 +14,6 @@ juke.controller('ArtistCtrl', function ($scope, PlayerFactory, theArtist) {
     $scope.artist = theArtist;
     $scope.playlist = theArtist;
     $scope.sortableOptions = {
-        cancel: "not(.active)"
+        disabled: true
     }
 });

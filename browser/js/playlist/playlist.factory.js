@@ -52,7 +52,6 @@ juke.factory('PlaylistFactory', function ($http, SongFactory) {
     };
 
     PlaylistFactory.updateList = function (id, list) {
-        // console.log("id: ", id, "list: ", list)
         return $http.put('/api/playlists/' + id, {
                 songlist: list
             })

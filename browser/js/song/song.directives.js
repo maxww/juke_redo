@@ -8,7 +8,7 @@ juke.directive("songList", function (PlayerFactory) {
             link: function (s, e, a) {
                 s.toggle = function (song) {
                     if (song !== PlayerFactory.getCurrentSong()) {
-                        PlayerFactory.start(song, s.songs);
+                        PlayerFactory.start(song, s.playlist.songs);
                     } else if (PlayerFactory.isPlaying()) {
                         PlayerFactory.pause();
                     } else {
