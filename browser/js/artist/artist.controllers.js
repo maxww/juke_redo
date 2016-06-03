@@ -15,4 +15,5 @@ juke.controller('ArtistCtrl', function ($scope, PlayerFactory, theArtist) {
     $scope.sortableOptions = {
         disable: true
     }
+    $scope.playlist = theArtist;
 });
