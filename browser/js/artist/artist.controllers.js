@@ -12,8 +12,8 @@ juke.controller('ArtistsCtrl', function ($scope, allArtists) {
 
 juke.controller('ArtistCtrl', function ($scope, PlayerFactory, theArtist) {
     $scope.artist = theArtist;
-    $scope.sortableOptions = {
-        disable: true
-    }
     $scope.playlist = theArtist;
+    $scope.sortableOptions = {
+        cancel: "not(.active)"
+    }
 });
