@@ -53,7 +53,7 @@ juke.controller('PlaylistCtrl', function ($scope, thePlaylist, PlaylistFactory, 
     }
 
     $scope.playlist = tempList;
-    var canUpdateSongList = $scope.playlist.songlist;
+    var canUpdateSongList = $scope.playlist.songlist || [];
 
     var sortingLog = []
 
