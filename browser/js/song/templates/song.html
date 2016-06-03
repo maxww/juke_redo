@@ -7,8 +7,8 @@
             <th>Genres</th>
         </tr>
     </thead>
-    <tbody>
-        <tr ng-repeat="song in songs" ng-class="{active: song === getCurrentSong() }" double-click="toggle(song)">
+    <tbody ui-sortable="sortableOptions" ng-model='playlist.songs'>
+        <tr ng-repeat="song in playlist.songs" ng-class="{active: song === getCurrentSong() }" double-click="toggle(song)">
             <td>
             </td>
             <td>{{ song.name }}</td>

@@ -2,7 +2,7 @@
 
 /* ARTISTS (PLURAL) CONTROLLER */
 
-juke.controller('ArtistsCtrl', function($scope, allArtists) {
+juke.controller('ArtistsCtrl', function ($scope, allArtists) {
 
     $scope.artists = allArtists;
 
@@ -10,6 +10,9 @@ juke.controller('ArtistsCtrl', function($scope, allArtists) {
 
 /* ARTIST (SINGULAR) CONTROLLER */
 
-juke.controller('ArtistCtrl', function($scope, PlayerFactory, theArtist) {
+juke.controller('ArtistCtrl', function ($scope, PlayerFactory, theArtist) {
     $scope.artist = theArtist;
+    $scope.sortableOptions = {
+        disable: true
+    }
 });
