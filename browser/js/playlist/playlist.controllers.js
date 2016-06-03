@@ -58,6 +58,8 @@ juke.controller('PlaylistCtrl', function ($scope, thePlaylist, PlaylistFactory, 
     var sortingLog = []
 
     $scope.addSong = function (song) {
+        if (canUpdateSongList.indexOf(song.id) > -1) return;
+
         canUpdateSongList.push(song.id);
         return PlaylistFactory.addSong($scope.playlist.id, song, canUpdateSongList)
             .then(function (addedSong) {
