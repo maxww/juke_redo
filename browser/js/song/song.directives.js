@@ -2,9 +2,6 @@ juke.directive("songList", function (PlayerFactory) {
         return {
             restrict: "E",
             templateUrl: "/js/song/templates/song.html",
-            // scope: {
-            //     songs: '='
-            // },
             link: function (s, e, a) {
                 s.toggle = function (song) {
                     if (song !== PlayerFactory.getCurrentSong()) {

@@ -15,9 +15,10 @@ juke.controller('SongChooseCtrl', function ($scope, SongFactory) {
 
     $scope.addIt = function () {
         $scope.addSong($scope.toAdd)
-            .then(function () {
+            .then(function (val) {
+                if (val === undefined) console.log("already in the list")
                 $scope.reset();
-            });
+            })
     };
 
 });
