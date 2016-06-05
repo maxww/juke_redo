@@ -1,5 +1,0 @@
-- update sidebar playlists list right after adding a new list
-- adding "filter" tab before the search input box in artists page
-- Orderable persistent
-- add songs from album page to playlist
-- make a playQueue factory so we can use it in both a single playlist page and album page.
